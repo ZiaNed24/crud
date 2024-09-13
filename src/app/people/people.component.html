@@ -13,6 +13,16 @@
           </div>
         </div>
       </div>
+
+      <!-- Single Filter Input Field -->
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Search Employees..."
+        [(ngModel)]="searchText"
+        (input)="filterTable()"
+      />
+
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -32,7 +42,12 @@
             <td>{{ person.city }}</td>
             <td>{{ person.email }}</td>
             <td>
-              <button (click)="onEdit(person)" class="edit" data-toggle="modal" data-target="#addEmployeeModal">
+              <button
+                (click)="onEdit(person)"
+                class="edit"
+                data-toggle="modal"
+                data-target="#addEmployeeModal"
+              >
                 <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
               </button>
               <button (click)="onDelete(person.personId)" class="delete">
@@ -42,6 +57,8 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- Pagination Controls -->
       <div class="pagination">
         <button
           class="page-item"
